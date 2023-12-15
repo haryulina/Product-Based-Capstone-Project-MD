@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PhishEye</string>
+    <string name="title_welcome_page">Welcome to PhishEye</string>
+    <string name="message_welcome_page">Come on, register yourself now and you can detect indications of phishing URLs that you encounter!</string>
+    <string name="gettingstarted">Getting Started</string>
+    <string name="title_register_page">Sign Up Now</string>
+    <string name="subtitle_signup_page">Please fill the details and create account</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="message_login_page">Please log in to continue using PhishEye</string>
+    <string name="title_login_page">Log In Now</string>
+    <string name="message_report">Sebagai tindakan kepedulian terhadap kasus penipuan, mohon masukkan pola penipuan baru yang Anda temukan di bawah ini!</string>
+    <string name="tv_finish_report">Terima kasih atas partisipasi Anda dalam menjaga keamanan bersama! Laporan Anda terkait upaya phishing terbaru sangat berharga bagi kami. Dengan kontribusi Anda, kita dapat bekerja sama untuk menjaga keamanan online dan melindungi pengguna dari potensi risiko keamanan. Kami menghargai kerjasama Anda dalam menjaga lingkungan digital tetap aman dan terlindungi. Terima kasih sekali lagi!</string>
+</resources>
