@@ -5,26 +5,40 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.user.phisheye.View.Login.LoginActivity
 import com.user.phisheye.Data.Model.PhisingRepository
+import com.user.phisheye.Data.Model.Result
+import com.user.phisheye.Data.Model.ViewModelFactory
+import com.user.phisheye.R
 import com.user.phisheye.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-    private lateinit var userRepository: PhisingRepository
-
+    private val viewModel by viewModels<RegisterViewModel>{
+        ViewModelFactory.getInstance(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.registerButton.setOnClickListener{ processRegister() }
+
+        binding.toLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
         setupView()
-        setupAction()
+        //setupAction()
         playAnimation()
 
     }
@@ -42,26 +56,21 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    private fun setupAction() {
-        binding.registerButton.setOnClickListener {
-            val email = binding.emailEditText.text.toString()
-
-            AlertDialog.Builder(this).apply {
-                setTitle("Yeah!")
-                setMessage("Akun dengan $email sudah jadi nih.")
-                setPositiveButton("Lanjut") { _, _ ->
-                    finish()
-                }
-                create()
-                show()
-            }
-        }
-        binding.toLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
-
-    }
+//    private fun setupAction() {
+//        binding.registerButton.setOnClickListener {
+//            val email = binding.emailEditText.text.toString()
+//
+//            AlertDialog.Builder(this).apply {
+//                setTitle("Yeah!")
+//                setMessage("Akun dengan $email sudah jadi nih.")
+//                setPositiveButton("Lanjut") { _, _ ->
+//                    finish()
+//                }
+//                create()
+//                show()
+//            }
+//        }
+//    }
 
     private fun playAnimation() {
 
@@ -103,4 +112,44 @@ class RegisterActivity : AppCompatActivity() {
         }.start()
     }
 
+    private fun processRegister(){
+
+        binding.apply {
+            val name = nameEditText.text.toString()
+            val email = emailEditText.text.toString()
+            val password = passwordEditText.text.toString()
+
+            viewModel.register(name, email, password).observe(this@RegisterActivity){ result ->
+                Log.wtf("Result Register", result.toString())
+                if(result != null){
+                    when(result){
+                        is Result.Loading -> {
+                            showLoading(true)
+                            registerButton.isEnabled = false
+                        }
+                        is Result.Success -> {
+                            showLoading(false)
+                            registerButton.isEnabled = true
+                            showToast(getString(R.string.create_account_succes))
+                            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                        is Result.Error -> {
+                            showLoading(false)
+                            registerButton.isEnabled = true
+                            Log.wtf("Result Register", result.error)
+                            showToast(getString(R.string.create_account_failed))
+                        }
+                    }
+                }
+            }
+        }
+    }
+    private fun showLoading(isLoading: Boolean){
+        binding.progressbar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+    private fun showToast(message: String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 }

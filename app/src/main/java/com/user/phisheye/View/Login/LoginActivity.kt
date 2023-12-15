@@ -23,7 +23,6 @@ import com.user.phisheye.View.Register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var phisingRepository: PhisingRepository
     private val viewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
     }
@@ -35,8 +34,13 @@ class LoginActivity : AppCompatActivity() {
 
         binding.loginButton.setOnClickListener{ processLogin()}
 
+        binding.toRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
         setupView()
-        setupAction()
+        //setupAction()
         playAnimation()
     }
 
@@ -53,28 +57,24 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    private fun setupAction() {
-        binding.loginButton.setOnClickListener {
-            val email = binding.emailEditText.text.toString()
-            viewModel.saveSession(UserModel(email, "sample_token"))
-            AlertDialog.Builder(this).apply {
-                setTitle("Yeah!")
-                setMessage("Anda berhasil login.")
-                setPositiveButton("Lanjut") { _, _ ->
-                    val intent = Intent(context, HomeActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intent)
-                    finish()
-                }
-                create()
-                show()
-            }
-        }
-        binding.toRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-    }
+//    private fun setupAction() {
+//        binding.loginButton.setOnClickListener {
+//            val email = binding.emailEditText.text.toString()
+//            viewModel.saveSession(UserModel(email, "sample_token"))
+//            AlertDialog.Builder(this).apply {
+//                setTitle("Yeah!")
+//                setMessage("Anda berhasil login.")
+//                setPositiveButton("Lanjut") { _, _ ->
+//                    val intent = Intent(context, HomeActivity::class.java)
+//                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//                    startActivity(intent)
+//                    finish()
+//                }
+//                create()
+//                show()
+//            }
+//        }
+//    }
 
     private fun playAnimation() {
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
@@ -140,6 +140,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun showLoading(isLoading: Boolean){
         binding.progressbar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }

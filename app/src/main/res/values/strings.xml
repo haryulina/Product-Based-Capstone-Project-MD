@@ -18,4 +18,6 @@
     <string name="tv_detecpos">The provided URL has been detected as phishing. Exercise caution and avoid interacting with the link.</string>
     <string name="login_succes">Login Berhasil</string>
     <string name="login_failed">Login Gagal</string>
+    <string name="create_account_failed">Gagal membuat akun\n</string>
+    <string name="create_account_succes">Berhasil membuat akun\n</string>
 </resources>

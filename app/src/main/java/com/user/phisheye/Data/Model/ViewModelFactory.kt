@@ -6,18 +6,22 @@ import androidx.lifecycle.ViewModelProvider
 import com.user.phisheye.Tools.Injection
 import com.user.phisheye.View.Home.HomeViewModel
 import com.user.phisheye.View.Login.LoginViewModel
+import com.user.phisheye.View.Register.RegisterViewModel
 
-class ViewModelFactory(private val repository: PhisingRepository) :
+class ViewModelFactory(private val phisingrepository: PhisingRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(repository) as T
+                HomeViewModel(phisingrepository) as T
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
-                LoginViewModel(repository) as T
+                LoginViewModel(phisingrepository) as T
+            }
+            modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
+                RegisterViewModel(phisingrepository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
@@ -31,7 +35,7 @@ class ViewModelFactory(private val repository: PhisingRepository) :
         fun getInstance(context: Context): ViewModelFactory {
             if (INSTANCE == null) {
                 synchronized(ViewModelFactory::class.java) {
-                    INSTANCE = ViewModelFactory(Injection.provideRepository(context))
+                    INSTANCE = ViewModelFactory(Injection.providePhisingRepository(context))
                 }
             }
             return INSTANCE as ViewModelFactory

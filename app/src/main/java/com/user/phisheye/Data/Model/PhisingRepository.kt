@@ -17,7 +17,7 @@ class PhisingRepository private constructor(
     private val userPreference: UserPreference,
     private val apiService: ApiService
 ) {
-    suspend fun register(name: String, email: String, password: String): MutableLiveData<Result<Register?>> {
+    fun register(name: String, email: String, password: String): MutableLiveData<Result<Register?>> {
         val responseLiveData: MutableLiveData<Result<Register?>> = MutableLiveData()
         responseLiveData.value = Result.Loading
         try {
