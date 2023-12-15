@@ -13,5 +13,7 @@
     <string name="message_login_page">Please log in to continue using PhishEye</string>
     <string name="title_login_page">Log In Now</string>
     <string name="message_report">Sebagai tindakan kepedulian terhadap kasus penipuan, mohon masukkan pola penipuan baru yang Anda temukan di bawah ini!</string>
-    <string name="tv_finish_report">Terima kasih atas partisipasi Anda dalam menjaga keamanan bersama! Laporan Anda terkait upaya phishing terbaru sangat berharga bagi kami. Dengan kontribusi Anda, kita dapat bekerja sama untuk menjaga keamanan online dan melindungi pengguna dari potensi risiko keamanan. Kami menghargai kerjasama Anda dalam menjaga lingkungan digital tetap aman dan terlindungi. Terima kasih sekali lagi!</string>
+    <string name="tv_finish_report">Thank you for your participation in maintaining security together! Your report regarding the latest phishing attempt is highly valuable to us. With your contribution, we can collaborate to uphold online security and protect users from potential security risks. We appreciate your cooperation in keeping the digital environment safe and secure.</string>
+    <string name="tv_detecnev">The link is secure. no phishing detected.</string>
+    <string name="tv_detecpos">The provided URL has been detected as phishing. Exercise caution and avoid interacting with the link.</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.user.phisheye.Di
 
 import android.content.Context
+import com.user.phisheye.Data.API.ApiConfig
 import com.user.phisheye.Data.PhisingRepository
 import com.user.phisheye.Data.Pref.UserPreference
 import com.user.phisheye.Data.Pref.dataStore
