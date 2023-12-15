@@ -1,4 +1,4 @@
-package com.user.phisheye.Data.Pref
+package com.user.phisheye.Data.Model
 
 class UserModel (
     val email: String,

@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.user.phisheye.Data.PhisingRepository
-import com.user.phisheye.Data.Pref.UserModel
+import com.user.phisheye.Data.Model.PhisingRepository
+import com.user.phisheye.Data.Model.UserModel
 import kotlinx.coroutines.launch
 
 class HomeViewModel (private val repository: PhisingRepository) : ViewModel(){

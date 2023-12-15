@@ -1,4 +1,4 @@
-package com.user.phisheye.CustomView
+package com.user.phisheye.View.CustomView
 
 import android.content.Context
 import android.text.Editable

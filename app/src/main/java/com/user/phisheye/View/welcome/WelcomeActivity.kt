@@ -45,29 +45,23 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun setupAction() {
 
-        binding.signupButton.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
-        binding.toLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        binding.loginButton.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
     private fun playAnimation() {
 
-        val signup = ObjectAnimator.ofFloat(binding.signupButton, View.ALPHA, 1f).setDuration(100)
+        val login = ObjectAnimator.ofFloat(binding.loginButton, View.ALPHA, 1f).setDuration(100)
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
         val desc = ObjectAnimator.ofFloat(binding.descTextView, View.ALPHA, 1f).setDuration(100)
-        val alreadysignup = ObjectAnimator.ofFloat(binding.alreadySignup, View.ALPHA, 1f).setDuration(100)
-        val tologin = ObjectAnimator.ofFloat(binding.toLogin, View.ALPHA, 1f).setDuration(100)
 
         val together = AnimatorSet().apply {
-            playTogether(signup)
+            playTogether(login)
         }
 
         AnimatorSet().apply {
-            playSequentially(title, desc, together, alreadysignup, tologin)
+            playSequentially(title, desc, together)
             start()
         }
     }

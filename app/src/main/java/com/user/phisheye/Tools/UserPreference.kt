@@ -1,10 +1,15 @@
-package com.user.phisheye.Data.Pref
+package com.user.phisheye.Tools
 
 import android.content.Context
 import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import com.user.phisheye.Data.Model.UserModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import java.util.prefs.Preferences
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "session")
 

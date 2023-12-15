@@ -16,4 +16,6 @@
     <string name="tv_finish_report">Thank you for your participation in maintaining security together! Your report regarding the latest phishing attempt is highly valuable to us. With your contribution, we can collaborate to uphold online security and protect users from potential security risks. We appreciate your cooperation in keeping the digital environment safe and secure.</string>
     <string name="tv_detecnev">The link is secure. no phishing detected.</string>
     <string name="tv_detecpos">The provided URL has been detected as phishing. Exercise caution and avoid interacting with the link.</string>
+    <string name="login_succes">Login Berhasil</string>
+    <string name="login_failed">Login Gagal</string>
 </resources>

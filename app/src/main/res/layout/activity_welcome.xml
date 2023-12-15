@@ -58,7 +58,7 @@
         tools:alpha="100" />
 
     <Button
-        android:id="@+id/signupButton"
+        android:id="@+id/loginButton"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:alpha="0"
@@ -68,40 +68,6 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
-        tools:alpha="100" />
-
-    <TextView
-        android:id="@+id/already_signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
-        android:alpha="0"
-        android:text="Already have an account?"
-        android:textColor="@color/grey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.0"
-        tools:alpha="100" />
-
-    <TextView
-        android:id="@+id/toLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
-        android:alpha="0"
-        android:text="Log In"
-        android:textColor="@color/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toEndOf="@+id/already_signup"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.0"
         tools:alpha="100" />
 
     <androidx.constraintlayout.widget.Guideline

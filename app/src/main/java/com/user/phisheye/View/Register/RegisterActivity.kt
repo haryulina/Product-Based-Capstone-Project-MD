@@ -11,7 +11,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.user.phisheye.View.Login.LoginActivity
-import com.user.phisheye.Data.PhisingRepository
+import com.user.phisheye.Data.Model.PhisingRepository
 import com.user.phisheye.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -43,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        binding.signupButton.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
 
             AlertDialog.Builder(this).apply {
@@ -79,10 +79,10 @@ class RegisterActivity : AppCompatActivity() {
             ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
         val passwordEditTextLayout =
             ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
-        val signup = ObjectAnimator.ofFloat(binding.signupButton, View.ALPHA, 1f).setDuration(100)
+        val register = ObjectAnimator.ofFloat(binding.registerButton, View.ALPHA, 1f).setDuration(100)
 
         // Animations for already_signup and toLogin TextViews
-        val alreadySignup = ObjectAnimator.ofFloat(binding.alreadySignup, View.ALPHA, 1f).setDuration(100)
+        val alreadyRegister = ObjectAnimator.ofFloat(binding.alreadyRegister, View.ALPHA, 1f).setDuration(100)
         val toLogin = ObjectAnimator.ofFloat(binding.toLogin, View.ALPHA, 1f).setDuration(100)
 
         AnimatorSet().apply {
@@ -95,8 +95,8 @@ class RegisterActivity : AppCompatActivity() {
                 emailEditTextLayout,
                 passwordTextView,
                 passwordEditTextLayout,
-                signup,
-                alreadySignup, // Include the animation for already_signup
+                register,
+                alreadyRegister, // Include the animation for already_signup
                 toLogin // Include the animation for toLogin
             )
             startDelay = 100

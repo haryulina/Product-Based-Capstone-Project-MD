@@ -1,5 +1,7 @@
 package com.user.phisheye.Data.API
 
+import com.user.phisheye.Data.Pref.Login
+import com.user.phisheye.Data.Pref.Register
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -9,10 +11,10 @@ interface ApiService {
 
     @POST("login")
     @FormUrlEncoded
-    suspend fun login(
+    fun login(
         @Field("email") email: String,
         @Field("password") password: String
-    ) : RegisterResponse
+    ) : Call<Login>
 
     @FormUrlEncoded
     @POST("register")
@@ -20,5 +22,5 @@ interface ApiService {
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String
-    ): RegisterResponse
+    ): Call<Register>
 }
