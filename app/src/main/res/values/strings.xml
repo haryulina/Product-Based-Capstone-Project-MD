@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PhishEye</string>
+    <string name="title_welcome_page">Welcome to PhishEye</string>
+    <string name="message_welcome_page">Come on, register yourself now and you can detect indications of phishing URLs that you encounter!</string>
+    <string name="gettingstarted">Getting Started</string>
+    <string name="title_register_page">Sign Up Now</string>
+    <string name="subtitle_signup_page">Please fill the details and create account</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="message_login_page">Please log in to continue using PhishEye</string>
+    <string name="title_login_page">Log In Now</string>
+    <string name="message_report">Sebagai tindakan kepedulian terhadap kasus penipuan, mohon masukkan pola penipuan baru yang Anda temukan di bawah ini!</string>
+    <string name="tv_finish_report">Thank you for your participation in maintaining security together! Your report regarding the latest phishing attempt is highly valuable to us. With your contribution, we can collaborate to uphold online security and protect users from potential security risks. We appreciate your cooperation in keeping the digital environment safe and secure.</string>
+    <string name="tv_detecnev">The link is secure. no phishing detected.</string>
+    <string name="tv_detecpos">The provided URL has been detected as phishing. Exercise caution and avoid interacting with the link.</string>
+    <string name="login_succes">Login Berhasil</string>
+    <string name="login_failed">Login Gagal</string>
+    <string name="create_account_failed">Gagal membuat akun\n</string>
+    <string name="create_account_succes">Berhasil membuat akun\n</string>
+</resources>

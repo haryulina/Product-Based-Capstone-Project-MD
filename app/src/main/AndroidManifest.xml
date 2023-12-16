@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PhishEye">
+        <activity
+            android:name=".View.Report.FinishReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Result.ResultNegativeActivity"
+            android:exported="false"
+            android:label="Detection Result"/>
+        <activity
+            android:name=".View.Result.ResultPositiveActivity"
+            android:exported="false"
+            android:label="Detection Result"/>
+        <activity
+            android:name=".View.Report.ReportActivity"
+            android:exported="false"
+            android:label="Report New Scam"/>
+        <activity
+            android:name=".View.Register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.Home.HomeActivity"
+            android:exported="false"
+            android:label="Home"/>
+        <activity
+            android:name=".View.welcome.WelcomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
