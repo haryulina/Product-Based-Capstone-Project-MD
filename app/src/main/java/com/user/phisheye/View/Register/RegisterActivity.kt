@@ -56,21 +56,7 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-//    private fun setupAction() {
-//        binding.registerButton.setOnClickListener {
-//            val email = binding.emailEditText.text.toString()
-//
-//            AlertDialog.Builder(this).apply {
-//                setTitle("Yeah!")
-//                setMessage("Akun dengan $email sudah jadi nih.")
-//                setPositiveButton("Lanjut") { _, _ ->
-//                    finish()
-//                }
-//                create()
-//                show()
-//            }
-//        }
-//    }
+
 
     private fun playAnimation() {
 
