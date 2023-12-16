@@ -106,13 +106,13 @@ class RegisterActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
 
             viewModel.register(name, email, password).observe(this@RegisterActivity){ result ->
-                Log.wtf("Result Register", result.toString())
-                if(result != null){
-                    when(result){
+                if(result != null) {
+                    when (result) {
                         is Result.Loading -> {
                             showLoading(true)
                             registerButton.isEnabled = false
                         }
+
                         is Result.Success -> {
                             showLoading(false)
                             registerButton.isEnabled = true
@@ -121,6 +121,7 @@ class RegisterActivity : AppCompatActivity() {
                             startActivity(intent)
                             finish()
                         }
+
                         is Result.Error -> {
                             showLoading(false)
                             registerButton.isEnabled = true

@@ -11,7 +11,6 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.user.phisheye.View.Login.LoginActivity
-import com.user.phisheye.View.Register.RegisterActivity
 import com.user.phisheye.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {

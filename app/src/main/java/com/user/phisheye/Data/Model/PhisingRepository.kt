@@ -26,7 +26,9 @@ class PhisingRepository private constructor(
                     if(response.isSuccessful){
                         responseLiveData.value  = Result.Success(response.body())
                     }else{
-                        responseLiveData.value = Result.Error(response.message())
+                        //responseLiveData.value = Result.Error(response.message())
+                        val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+                        responseLiveData.value = Result.Error(errorMessage)
                     }
                 }
 

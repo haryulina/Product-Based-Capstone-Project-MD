@@ -1,25 +1,33 @@
 package com.user.phisheye.View.Home
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import com.user.phisheye.Data.Model.ViewModelFactory
 import com.user.phisheye.View.welcome.WelcomeActivity
-import com.user.phisheye.databinding.ActivityMainBinding
+import com.user.phisheye.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityHomeBinding
     private val viewModel by viewModels<HomeViewModel> {
         ViewModelFactory.getInstance(this)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        val actionBar = supportActionBar
+        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#890F0D")))
+        actionBar?.title = Html.fromHtml("<font color='#EEEEEE'>Home</font>")
+
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewModel.getSession().observe(this)
@@ -44,7 +52,6 @@ class HomeActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        supportActionBar?.hide()
     }
 
     private fun setupAction() {

@@ -16,13 +16,16 @@
             android:exported="false" />
         <activity
             android:name=".View.Result.ResultNegativeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Detection Result"/>
         <activity
             android:name=".View.Result.ResultPositiveActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Detection Result"/>
         <activity
             android:name=".View.Report.ReportActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Report New Scam"/>
         <activity
             android:name=".View.Register.RegisterActivity"
             android:exported="false" />
@@ -31,7 +34,8 @@
             android:exported="false" />
         <activity
             android:name=".View.Home.HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Home"/>
         <activity
             android:name=".View.welcome.WelcomeActivity"
             android:exported="true"
