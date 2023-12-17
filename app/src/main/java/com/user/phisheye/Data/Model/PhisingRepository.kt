@@ -20,13 +20,14 @@ class PhisingRepository private constructor(
     fun register(name: String, email: String, password: String): MutableLiveData<Result<Register?>> {
         val responseLiveData: MutableLiveData<Result<Register?>> = MutableLiveData()
         responseLiveData.value = Result.Loading
+
         try {
             apiService.register(name, email, password).enqueue(object : Callback<Register>{
                 override fun onResponse(call: Call<Register>, response: Response<Register>) {
                     if(response.isSuccessful){
                         responseLiveData.value  = Result.Success(response.body())
                     }else{
-                        //responseLiveData.value = Result.Error(response.message())
+                        responseLiveData.value = Result.Error(response.message())
                         val errorMessage = response.errorBody()?.string() ?: "Unknown error"
                         responseLiveData.value = Result.Error(errorMessage)
                     }

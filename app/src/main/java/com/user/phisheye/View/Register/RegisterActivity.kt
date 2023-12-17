@@ -18,6 +18,7 @@ import com.user.phisheye.Data.Model.PhisingRepository
 import com.user.phisheye.Data.Model.Result
 import com.user.phisheye.Data.Model.ViewModelFactory
 import com.user.phisheye.R
+import com.user.phisheye.View.welcome.WelcomeActivity
 import com.user.phisheye.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -38,11 +39,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         setupView()
-        //setupAction()
         playAnimation()
-
     }
-
     private fun setupView() {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -97,7 +95,6 @@ class RegisterActivity : AppCompatActivity() {
             startDelay = 100
         }.start()
     }
-
     private fun processRegister(){
 
         binding.apply {
