@@ -22,6 +22,8 @@ class ResultPositiveActivity : AppCompatActivity() {
         actionBar?.title = Html.fromHtml("<font color='#EEEEEE'>Detection Result</font>")
 
         super.onCreate(savedInstanceState)
+
+        binding = ActivityResultPositiveBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupHomeBtn()
