@@ -20,5 +20,11 @@
     <string name="login_failed">Login Gagal</string>
     <string name="create_account_failed">Gagal membuat akun\n</string>
     <string name="create_account_succes">Berhasil membuat akun\n</string>
-    <string name="error_required_field">This field is required</string>
+    <string name="logout">Logout</string>
+    <string name="Home">Home</string>
+    <string name="title_home_page">PhishEye Education</string>
+    <string name="detect_url_link">Detect URL Link</string>
+    <string name="see_more">See More</string>
+    <string name="about">About us</string>
+    <string name="check">Check</string>
 </resources>

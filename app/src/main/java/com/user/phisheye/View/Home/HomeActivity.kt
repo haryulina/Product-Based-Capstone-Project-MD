@@ -12,6 +12,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import com.user.phisheye.Data.Model.ViewModelFactory
+import com.user.phisheye.View.Report.ReportActivity
 import com.user.phisheye.View.welcome.WelcomeActivity
 import com.user.phisheye.databinding.ActivityHomeBinding
 
@@ -55,7 +56,10 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, ReportActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
