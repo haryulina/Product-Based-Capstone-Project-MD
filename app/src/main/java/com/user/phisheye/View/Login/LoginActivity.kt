@@ -115,8 +115,8 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
             viewModel.login(email, password).observe(this@LoginActivity) { result ->
                 Log.wtf("Result Login", result.toString())
-                if (result != null){
-                    when(result){
+                if (result != null) {
+                    when (result) {
                         is com.user.phisheye.Data.Model.Result.Loading -> {
                             showLoading(true)
                             loginButton.isEnabled = false
@@ -134,12 +134,42 @@ class LoginActivity : AppCompatActivity() {
                             showToast(getString(R.string.login_failed))
                         }
 
-                        else -> {}
+                        else -> {
+                            // Handle other cases if necessary
+                        }
                     }
                 }
             }
         }
     }
+
+//    private fun processLogin() {
+//        binding.apply {
+//            val email = emailEditText.text.toString()
+//            val password = passwordEditText.text.toString()
+//
+//            viewModel.login(email, password).observe(this@LoginActivity) { result ->
+//                when (result) {
+//                    is com.user.phisheye.Data.Model.Result.Loading -> {
+//                        showLoading(true)
+//                        loginButton.isEnabled = false
+//                    }
+//                    is com.user.phisheye.Data.Model.Result.Success -> {
+//                        showLoading(false)
+//                        loginButton.isEnabled = true
+//                        // Handle the successful login, save session, and navigate to the next screen
+//                    }
+//                    is com.user.phisheye.Data.Model.Result.Error -> {
+//                        showLoading(false)
+//                        loginButton.isEnabled = true
+//                        showToast(getString(R.string.login_failed))
+//                        Log.e("Result Login", "Error: ${result.message}")
+//                    }
+//                }
+//            }
+//        }
+//    }
+
 
     private fun showLoading(isLoading: Boolean){
         binding.progressbar.visibility = if (isLoading) View.VISIBLE else View.GONE

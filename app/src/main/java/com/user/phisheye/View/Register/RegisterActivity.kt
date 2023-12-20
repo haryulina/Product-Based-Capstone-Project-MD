@@ -54,8 +54,6 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-
-
     private fun playAnimation() {
 
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
@@ -122,9 +120,11 @@ class RegisterActivity : AppCompatActivity() {
                         is Result.Error -> {
                             showLoading(false)
                             registerButton.isEnabled = true
-                            Log.wtf("Result Register", result.error)
+//                            Log.wtf("Result Register", result.error)
                             showToast(getString(R.string.create_account_failed))
                         }
+
+                        else -> {}
                     }
                 }
             }
