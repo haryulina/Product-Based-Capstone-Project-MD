@@ -37,6 +37,14 @@
             android:exported="false"
             android:label="Home"/>
         <activity
+            android:name=".View.Education.EducationActivity"
+            android:exported="false"
+            android:label="Home"/>
+        <activity
+            android:name=".View.Education.EducationDetailsActivity"
+            android:exported="false"
+            android:label="Home"/>
+        <activity
             android:name=".View.welcome.WelcomeActivity"
             android:exported="true"
             android:theme="@style/Theme.App.SplashScreen">
