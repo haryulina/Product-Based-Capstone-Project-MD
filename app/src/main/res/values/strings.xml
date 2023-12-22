@@ -28,4 +28,8 @@
     <string name="logout">Logout</string>
     <string name="report_Succes">Report Succes</string>
     <string name="report_failed">Report failed</string>
+    <string name="log_out">Log Out</string>
+    <string name="are_you_sure">Are You Sure ?</string>
+    <string name="oke">Oke</string>
+    <string name="cancel">Cancel</string>
 </resources>

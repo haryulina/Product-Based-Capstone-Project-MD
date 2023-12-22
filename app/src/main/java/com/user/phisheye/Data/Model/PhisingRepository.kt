@@ -107,7 +107,7 @@ class PhisingRepository private constructor(
         return userPreference.getSession()
     }
 
-    suspend fun logout() {
+    suspend fun clearLoginSession() {
         userPreference.logout()
     }
     companion object {

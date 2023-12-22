@@ -8,12 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import com.user.phisheye.Data.Model.ViewModelFactory
+import com.user.phisheye.R
 import com.user.phisheye.View.Education.EducationActivity
 import com.user.phisheye.View.Report.ReportActivity
 import com.user.phisheye.View.Result.ResultNegativeActivity
@@ -51,6 +55,21 @@ class HomeActivity : AppCompatActivity() {
 
         setupView()
         setupAction()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.set_menu -> {
+                clearSession()
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
     private fun setupView() {
         @Suppress("DEPRECATION")
@@ -103,6 +122,21 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, ReportActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun clearSession() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.log_out)
+            .setMessage(R.string.are_you_sure)
+            .setPositiveButton(R.string.oke) { _, _ ->
+                viewModel.Logout()
+            }
+            .setNegativeButton(R.string.cancel) { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        val alert = builder.create()
+        alert.show()
     }
 
     private fun showToast(message: String) {

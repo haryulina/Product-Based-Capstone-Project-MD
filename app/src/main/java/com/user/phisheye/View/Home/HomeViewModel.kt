@@ -12,16 +12,16 @@ import com.user.phisheye.Data.Model.UserModel
 import com.user.phisheye.Data.Pref.PredictPhishingResponse
 import kotlinx.coroutines.launch
 
-class HomeViewModel (private val repository: PhisingRepository) : ViewModel(){
+class HomeViewModel (private val phisingRepository: PhisingRepository) : ViewModel(){
     private val predictApiService: ApiService = PredictApiConfig.getPredictApiService()
 
     fun getSession(): LiveData<UserModel> {
-        return repository.getSession().asLiveData()
+        return phisingRepository.getSession().asLiveData()
     }
 
-    fun logout() {
+    fun Logout() {
         viewModelScope.launch {
-            repository.logout()
+            phisingRepository.clearLoginSession()
         }
     }
 
