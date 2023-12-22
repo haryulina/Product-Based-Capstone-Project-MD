@@ -40,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         setupView()
-        //setupAction()
         playAnimation()
     }
 
@@ -56,25 +55,6 @@ class LoginActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
-
-//    private fun setupAction() {
-//        binding.loginButton.setOnClickListener {
-//            val email = binding.emailEditText.text.toString()
-//            viewModel.saveSession(UserModel(email, "sample_token"))
-//            AlertDialog.Builder(this).apply {
-//                setTitle("Yeah!")
-//                setMessage("Anda berhasil login.")
-//                setPositiveButton("Lanjut") { _, _ ->
-//                    val intent = Intent(context, HomeActivity::class.java)
-//                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//                    startActivity(intent)
-//                    finish()
-//                }
-//                create()
-//                show()
-//            }
-//        }
-//    }
 
     private fun playAnimation() {
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
@@ -142,34 +122,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
-//    private fun processLogin() {
-//        binding.apply {
-//            val email = emailEditText.text.toString()
-//            val password = passwordEditText.text.toString()
-//
-//            viewModel.login(email, password).observe(this@LoginActivity) { result ->
-//                when (result) {
-//                    is com.user.phisheye.Data.Model.Result.Loading -> {
-//                        showLoading(true)
-//                        loginButton.isEnabled = false
-//                    }
-//                    is com.user.phisheye.Data.Model.Result.Success -> {
-//                        showLoading(false)
-//                        loginButton.isEnabled = true
-//                        // Handle the successful login, save session, and navigate to the next screen
-//                    }
-//                    is com.user.phisheye.Data.Model.Result.Error -> {
-//                        showLoading(false)
-//                        loginButton.isEnabled = true
-//                        showToast(getString(R.string.login_failed))
-//                        Log.e("Result Login", "Error: ${result.message}")
-//                    }
-//                }
-//            }
-//        }
-//    }
-
 
     private fun showLoading(isLoading: Boolean){
         binding.progressbar.visibility = if (isLoading) View.VISIBLE else View.GONE

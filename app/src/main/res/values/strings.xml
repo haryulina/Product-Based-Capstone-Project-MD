@@ -12,7 +12,7 @@
     <string name="login">Login</string>
     <string name="message_login_page">Please log in to continue using PhishEye</string>
     <string name="title_login_page">Log In Now</string>
-    <string name="message_report">Sebagai tindakan kepedulian terhadap kasus penipuan, mohon masukkan pola penipuan baru yang Anda temukan di bawah ini!</string>
+    <string name="message_report">In case you come across a URL link suspected of being a new phishing attempt, kindly provide the URL below!</string>
     <string name="tv_finish_report">Thank you for your participation in maintaining security together! Your report regarding the latest phishing attempt is highly valuable to us. With your contribution, we can collaborate to uphold online security and protect users from potential security risks. We appreciate your cooperation in keeping the digital environment safe and secure.</string>
     <string name="tv_detecnev">The link is secure. no phishing detected.</string>
     <string name="tv_detecpos">The provided URL has been detected as phishing. Exercise caution and avoid interacting with the link.</string>
@@ -20,11 +20,12 @@
     <string name="login_failed">Login Gagal</string>
     <string name="create_account_failed">Gagal membuat akun\n</string>
     <string name="create_account_succes">Berhasil membuat akun\n</string>
-    <string name="logout">Logout</string>
-    <string name="Home">Home</string>
-    <string name="title_home_page">PhishEye Education</string>
-    <string name="detect_url_link">Detect URL Link</string>
+    <string name="error_required_field">This field is required</string>
     <string name="see_more">See More</string>
-    <string name="about">About us</string>
+    <string name="detect_url_link">Detect Phishing Scams</string>
     <string name="check">Check</string>
+    <string name="about">about</string>
+    <string name="logout">Logout</string>
+    <string name="report_Succes">Report Succes</string>
+    <string name="report_failed">Report failed</string>
 </resources>

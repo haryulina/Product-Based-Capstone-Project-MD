@@ -38,6 +38,8 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //binding.fab.setOnClickListener { moveToReport() }
+
         viewModel.getSession().observe(this)
         { user ->
             Log.wtf("user session", "User Token ${user.token}")
@@ -113,5 +115,7 @@ class HomeActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-
+    private fun moveToReport() {
+        startActivity(Intent(this, ReportActivity::class.java))
+    }
 }

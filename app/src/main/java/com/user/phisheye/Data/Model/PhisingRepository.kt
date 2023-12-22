@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.user.phisheye.Data.API.ApiService
 import com.user.phisheye.Data.Pref.Login
 import com.user.phisheye.Data.Pref.Register
+import com.user.phisheye.Data.Pref.Report
 import com.user.phisheye.Tools.UserPreference
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Call
@@ -46,8 +47,6 @@ class PhisingRepository private constructor(
         }
         return  responseLiveData
     }
-
-
         fun login(email: String, password: String): MutableLiveData<Result<Login?>> {
         val responseLiveData: MutableLiveData<Result<Login?>> = MutableLiveData()
         responseLiveData.value = Result.Loading
@@ -63,6 +62,32 @@ class PhisingRepository private constructor(
                 }
 
                 override fun onFailure(call: Call<Login>, t: Throwable) {
+                    responseLiveData.value = Result.Error(t.message.toString())
+                }
+            })
+        } catch (e: HttpException){
+
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, Error::class.java)
+            responseLiveData.value = errorResponse.message?.let { Result.Error(it) }
+        }
+        return responseLiveData
+    }
+    fun report(link: String): MutableLiveData<Result<Report?>> {
+        val responseLiveData: MutableLiveData<Result<Report?>> = MutableLiveData()
+        responseLiveData.value = Result.Loading
+        try {
+            apiService.report(link).enqueue(object : Callback<Report> {
+                override fun onResponse(call: Call<Report>, response: Response<Report>) {
+                    Log.wtf("RESPONSE", response.isSuccessful.toString())
+                    if (response.isSuccessful) {
+                        responseLiveData.value = Result.Success(response.body())
+                    } else {
+                        responseLiveData.value = Result.Error(response.message())
+                    }
+                }
+
+                override fun onFailure(call: Call<Report>, t: Throwable) {
                     responseLiveData.value = Result.Error(t.message.toString())
                 }
             })

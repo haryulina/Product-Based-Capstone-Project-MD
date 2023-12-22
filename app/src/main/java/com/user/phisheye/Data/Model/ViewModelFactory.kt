@@ -7,6 +7,7 @@ import com.user.phisheye.Tools.Injection
 import com.user.phisheye.View.Home.HomeViewModel
 import com.user.phisheye.View.Login.LoginViewModel
 import com.user.phisheye.View.Register.RegisterViewModel
+import com.user.phisheye.View.Report.ReportViewModel
 
 class ViewModelFactory(private val phisingrepository: PhisingRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -22,6 +23,9 @@ class ViewModelFactory(private val phisingrepository: PhisingRepository) :
             }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(phisingrepository) as T
+            }
+            modelClass.isAssignableFrom(ReportViewModel::class.java) -> {
+                ReportViewModel(phisingrepository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

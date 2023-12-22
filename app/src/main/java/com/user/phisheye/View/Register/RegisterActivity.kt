@@ -120,7 +120,7 @@ class RegisterActivity : AppCompatActivity() {
                         is Result.Error -> {
                             showLoading(false)
                             registerButton.isEnabled = true
-//                            Log.wtf("Result Register", result.error)
+                            Log.wtf("Result Register", result.error)
                             showToast(getString(R.string.create_account_failed))
                         }
 
