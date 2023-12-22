@@ -3,23 +3,19 @@ package com.user.phisheye.View.Report
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.user.phisheye.Data.Model.UserModel
 import com.user.phisheye.Data.Model.ViewModelFactory
 import com.user.phisheye.R
-import com.user.phisheye.View.Home.HomeActivity
-import com.user.phisheye.View.Login.LoginActivity
-import com.user.phisheye.View.Login.LoginViewModel
-import com.user.phisheye.View.Register.RegisterActivity
-import com.user.phisheye.databinding.ActivityLoginBinding
 import com.user.phisheye.databinding.ActivityReportBinding
-import com.user.phisheye.databinding.ActivityWelcomeBinding
 
 class ReportActivity : AppCompatActivity() {
 
@@ -39,7 +35,19 @@ class ReportActivity : AppCompatActivity() {
         actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#890F0D")))
         actionBar?.title = Html.fromHtml("<font color='#EEEEEE'>Report New Scam</font>")
 
-        //setupReport()
+        setupView()
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
     }
 
     private fun processReport(){
@@ -58,7 +66,7 @@ class ReportActivity : AppCompatActivity() {
                             reportBtn.isEnabled = true
                             viewModel.report(link)
                             showToast(getString(R.string.report_Succes))
-                            moveToFinishReportActivity()
+                            setupReport()
                         }
                         is com.user.phisheye.Data.Model.Result.Error -> {
                             showLoading(false)
@@ -66,6 +74,7 @@ class ReportActivity : AppCompatActivity() {
                             showToast(getString(R.string.report_failed))
                         }
                         else -> {
+                            showToast("URL cannot be empty")
                         }
                     }
                 }
@@ -73,22 +82,15 @@ class ReportActivity : AppCompatActivity() {
         }
     }
 
-//    private fun setupReport() {
-//        binding.reportBtn.setOnClickListener {
-//            startActivity(Intent(this, FinishReportActivity::class.java))
-//        }
-//    }
+    private fun setupReport() {
+        binding.reportBtn.setOnClickListener {
+            startActivity(Intent(this, FinishReportActivity::class.java))
+        }
+    }
     private fun showLoading(isLoading: Boolean){
         binding.progressbar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun moveToFinishReportActivity(){
-        val intent = Intent(this, FinishReportActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
-        finish()
     }
 }

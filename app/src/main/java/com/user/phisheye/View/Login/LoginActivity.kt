@@ -113,9 +113,8 @@ class LoginActivity : AppCompatActivity() {
                             loginButton.isEnabled = true
                             showToast(getString(R.string.login_failed))
                         }
-
                         else -> {
-                            // Handle other cases if necessary
+                            showToast("Enter an Email and Password")
                         }
                     }
                 }
