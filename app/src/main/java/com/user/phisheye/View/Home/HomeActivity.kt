@@ -38,8 +38,6 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //binding.fab.setOnClickListener { moveToReport() }
-
         viewModel.getSession().observe(this)
         { user ->
             Log.wtf("user session", "User Token ${user.token}")
@@ -67,13 +65,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        // Education Articles Feature
         binding.moreTextView.setOnClickListener {
             val intent = Intent(this, EducationActivity::class.java)
             startActivity(intent)
         }
 
-        // Phishing Detection Feature
         binding.detectButton.setOnClickListener {
             val url = detectEditText.text.toString()
 
@@ -103,19 +99,13 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        //New Phishing Report Feature
         binding.fab.setOnClickListener {
             val intent = Intent(this, ReportActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun moveToReport() {
-        startActivity(Intent(this, ReportActivity::class.java))
     }
 }

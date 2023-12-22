@@ -13,9 +13,9 @@
     <string name="message_login_page">Please log in to continue using PhishEye</string>
     <string name="title_login_page">Log In Now</string>
     <string name="message_report">In case you come across a URL link suspected of being a new phishing attempt, kindly provide the URL below!</string>
-    <string name="tv_finish_report">Thank you for your participation in maintaining security together! Your report regarding the latest phishing attempt is highly valuable to us. With your contribution, we can collaborate to uphold online security and protect users from potential security risks. We appreciate your cooperation in keeping the digital environment safe and secure.</string>
-    <string name="tv_detecnev">The link is secure. no phishing detected.</string>
-    <string name="tv_detecpos">The provided URL has been detected as phishing. Exercise caution and avoid interacting with the link.</string>
+    <string name="tv_finish_report">Thank you for helping us in gathering information about the latest patterns of phishing. We will continue to improve our services to help many people avoid phishing scams.</string>
+    <string name="tv_detecnev">We can confidently state that the provided URL doesn’t appear to be a phishing attempt. However, it is recommended to proceed with caution and stay vigilant for safety.</string>
+    <string name="tv_detecpos">The provided image is likely to be a phishing attempt. Exercise caution and avoid interacting with the link or file. If you\'ve already clicked on it, please visit the education articles below to learn how to handle the situation.</string>
     <string name="login_succes">Login Berhasil</string>
     <string name="login_failed">Login Gagal</string>
     <string name="create_account_failed">Gagal membuat akun\n</string>

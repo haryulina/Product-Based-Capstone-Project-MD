@@ -65,9 +65,7 @@ class ReportActivity : AppCompatActivity() {
                             reportBtn.isEnabled = true
                             showToast(getString(R.string.report_failed))
                         }
-
                         else -> {
-                            // Handle other cases if necessary
                         }
                     }
                 }

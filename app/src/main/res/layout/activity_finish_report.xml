@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/finishImageView"
-        android:layout_width="366dp"
-        android:layout_height="255dp"
+        android:layout_width="330dp"
+        android:layout_height="229dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="24dp"
         android:src="@drawable/finish"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
